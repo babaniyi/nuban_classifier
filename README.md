@@ -45,7 +45,7 @@ pytest tests/
 ├── nuban_classifier.py      # Main module for NUBAN validation and classification
 ├── tests/
 │   ├── test_nuban.py        # Unit tests for the project
-├── requirements.txt         # Dependencies file (if any)
+├── requirements.txt         # Dependencies file
 ├── README.md                # Project documentation
 ```
 
