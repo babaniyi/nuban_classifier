@@ -1,6 +1,5 @@
 # NUBAN Classifier
-
-This Python project validates and classifies Nigerian bank accounts based on the Nigeria Uniform Bank Account Number (NUBAN) scheme.
+The NUBAN Classifier project is a Python-based tool designed to validate and classify Nigerian bank account numbers according to the Nigeria Uniform Bank Account Number (NUBAN) standard. This standard was introduced by the Central Bank of Nigeria (CBN) to streamline electronic payments and ensure uniformity across all banks in the country.
 
 ## Features
 - Validate NUBAN account numbers using the official check digit algorithm.
