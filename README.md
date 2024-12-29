@@ -1,55 +1,96 @@
 # NUBAN Classifier
-The NUBAN Classifier project is a Python-based tool designed to validate and classify Nigerian bank account numbers according to the Nigeria Uniform Bank Account Number (NUBAN) standard. This standard was introduced by the Central Bank of Nigeria (CBN) to streamline electronic payments and ensure uniformity across all banks in the country.
+
+The NUBAN Classifier is a Python-based project for validating and classifying Nigerian bank account numbers based on the **Nigeria Uniform Bank Account Number (NUBAN)** scheme. The system uses the NUBAN algorithm defined by the Central Bank of Nigeria (CBN) to calculate check digits, validate account numbers, and identify the banks to which they belong.
+
+---
 
 ## Features
-- Validate NUBAN account numbers using the official check digit algorithm.
-- Classify banks based on the first three digits of the NUBAN.
 
-## Getting Started
+1. **Check Digit Calculation**: Computes the check digit for a NUBAN account number using a standardized algorithm.
+2. **Validation**: Verifies the integrity of a NUBAN account number based on its check digit.
+3. **Bank Classification**: Identifies possible banks for a given account number.
+
+---
+
+## Installation
 
 ### Prerequisites
 - Python 3.7+
 
-### Installation
+### Setup
 1. Clone the repository:
    ```bash
    git clone https://github.com/babaniyi/nuban_classifier.git
    cd nuban-classifier
    ```
-2. Install dependencies (if any):
+
+2. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-### Usage
-```python
-from nuban_classifier import validate_nuban, classify_bank
+3. Run tests to verify the installation:
+   ```bash
+   pytest tests/
+   ```
 
-example_nuban = "0110000014579"  # Example NUBAN for First Bank
-if validate_nuban(example_nuban):
-    print(f"Valid NUBAN. Bank: {classify_bank(example_nuban)}")
+---
+
+## Usage
+
+### Example Code
+```python
+from nuban_classifier import classify_account_number
+
+# Example account number
+account_number = "1234567890"
+matching_banks = classify_account_number(account_number)
+
+if matching_banks:
+    print(f"The account number may belong to: {', '.join(matching_banks)}")
 else:
-    print("Invalid NUBAN.")
+    print("No matching banks found.")
 ```
 
-### Testing
-Run the included tests to ensure functionality:
+### Explanation
+- `calculate_check_digit(serial_number, bank_code)`: Calculates the check digit for a given serial number and bank code.
+- `classify_account_number(account_number)`: Identifies all possible banks an account number may belong to.
+
+---
+
+## Project Structure
+
+```plaintext
+.
+├── nuban_classifier.py      # Core module with validation and classification logic
+├── tests/                   # Unit tests
+│   ├── test_account_classifier.py
+├── requirements.txt         # List of dependencies
+├── README.md                # Project documentation
+```
+
+---
+
+## Tests
+
+### Running Tests
+Use `pytest` to run the included unit tests:
 ```bash
 pytest tests/
 ```
 
-## Project Structure
-```
-.
-├── nuban_classifier.py      # Main module for NUBAN validation and classification
-├── tests/
-│   ├── test_nuban.py        # Unit tests for the project
-├── requirements.txt         # Dependencies file
-├── README.md                # Project documentation
-```
+### Example Tests
+1. **Check Digit Calculation**:
+   - Tests for correctness of the computed check digit.
+2. **Account Classification**:
+   - Verifies the identification of valid and invalid account numbers.
 
-## Reference
-- [CBN NUBAN Proposals Document](https://www.cbn.gov.ng/out/2011/circulars/bspd/nuban%20proposals%20v%200%204-%2003%2009%202010.pdf)
+---
+
+## References
+
+- [NUBAN Proposals Document](https://www.cbn.gov.ng/out/2011/circulars/bspd/nuban%20proposals%20v%200%204-%2003%2009%202010.pdf)
+---
 
 ## License
-MIT License
+This project is licensed under the MIT License. See the LICENSE file for details.
