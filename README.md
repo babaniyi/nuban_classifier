@@ -89,7 +89,7 @@ pytest tests/
 
 ## References
 
-- [CBN NUBAN Proposals Document](https://www.cbn.gov.ng/out/2011/circulars/bspd/nuban%20proposals%20v%200%204-%2003%2009%202010.pdf)
+- [CBN NUBAN Proposal Document](https://www.cbn.gov.ng/out/2011/circulars/bspd/nuban%20proposals%20v%200%204-%2003%2009%202010.pdf)
 ---
 
 ## License
